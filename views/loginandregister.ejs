@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="resources/css/style.css">
+</head>
+<body> 
+    <div class="container">
+        <div class="container-form">
+            <!-- Formulario de Inicio de Sesión -->
+            <form class="sign-in" action="/login" method="POST">
+                <h2>Iniciar Sesión</h2>
+                <div class="social-networks">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </div>
+                <span>Digite email y contraseña</span>
+                <div class="container-input">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="text" name="email" placeholder="Email" required>
+                </div>
+                <div class="container-input">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" name="pass" placeholder="Contraseña" required>
+                </div>
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <button class="button" type="submit">INICIAR SESION</button>
+            </form>
+        </div>
+        <div class="container-form">
+            <!-- Formulario de Registro -->
+            <form class="sign-up" action="/register" method="POST">
+                <h2>Registrarse</h2>
+                <div class="social-networks">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </div>
+                <span>Use su correo electronico para registrarse</span>
+                <div class="container-input">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <input type="text" name="name" placeholder="Nombre" required>
+                </div>
+                <div class="container-input">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="container-input">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" name="pass" placeholder="Contraseña" required>
+                </div>
+                <button class="button" type="submit">REGISTRARSE</button>
+            </form>
+        </div>
+
+        <div class="container-welcome">
+            <div class="welcome-sign-up welcome">
+                <div class="logo1">
+                    <img src="resources/Logo1.png" alt="Logo de la Empresa">
+                </div>
+                <h3>¡Bienvenido!</h3>
+                <p>Ingrese usuario y contraseña para usar toda las funciones del sitio</p>
+                <button class="button" id="btn-sign-up">Registrarse</button>
+            </div>
+            <div class="welcome-sign-in welcome">
+                <div class="logo2">
+                    <img src="resources/Logo2.png" alt="Logo de la Empresa">
+                </div>
+                <h3>¡Hola!</h3>
+                <p>Regístrese con sus datos personales para usar todas las funciones del sitio</p>
+                <button class="button" id="btn-sign-in">Iniciar sesión</button>
+            </div>
+        </div>
+    </div>
+    <script src="resources/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <% if (typeof alert !== "undefined" && alert) { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: <%= showConfirmButton %>,
+                timer: <%= timer %>
+            }).then(() => {
+                window.location = '/<%= ruta %>';
+            });
+        </script>
+    <% } %>
+</body>
+</html>
